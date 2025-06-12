@@ -1,0 +1,14 @@
+[Unit]
+Description=FastAPI Application
+After=network.target
+
+[Service]
+User=pallu_g
+Group=www-data
+WorkingDirectory=/home/pallu_g/gokul_repos/fastapi_service
+Environment="PATH=/usr/bin:/usr/local/bin:/home/pallu_g/.local/bin/:/home/pallu_g/gokul_repos/fastapi_service/.venv/bin/"
+ExecStart=/home/pallu_g/gokul_repos/fastapi_service/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8001 --workers 3
+
+[Install]
+WantedBy=multi-user.target
+
